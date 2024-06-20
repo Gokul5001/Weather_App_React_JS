@@ -2,7 +2,7 @@
 
 WeatherApp is a simple application demonstrating role-based access control (RBAC) and integration with an Express server for permission management.
 
-https://github.com/Gokul5001/Weather_App_React_JS/assets/132426290/27d9caed-7f57-4691-a8c1-0e07547620fc
+https://github.com/Gokul5001/Weather_App_React_JS/assets/132426290/7faf0235-a3f3-4ee7-996f-15c98f4eb98a
 
 ## Overview
 
