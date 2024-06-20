@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# WeatherApp
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+WeatherApp is a simple application demonstrating role-based access control (RBAC) and integration with an Express server for permission management.
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+WeatherApp allows users to view weather data based on their assigned roles. The application distinguishes between "admin" and "guest" roles, with different permissions for accessing weather information.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Role Selection**: Users can choose between "admin" and "guest" roles using a dropdown menu.
+- **Permission Enforcement**: The application enforces permissions when fetching weather data. Admins have full access, while guests have restricted access.
+- **Error Handling**: Basic error handling ensures users are notified when permissions are denied or when weather data retrieval fails.
+- **Integration with Express Server**: The backend server (`opal-server.js`) evaluates permissions based on role and action (`search-weather`).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Setup
 
-### `npm test`
+To run the WeatherApp locally, follow these steps:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/WeatherApp.git
+   cd WeatherApp
+   ```
 
-### `npm run build`
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. **Start the server**:
+   ```bash
+   node opal-server.js
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   This will start the Express server on `http://localhost:3000`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. **Start the frontend**:
+   ```bash
+   npm start
+   ```
 
-### `npm run eject`
+   This will start the React development server and open the WeatherApp in your default web browser.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Usage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Select a role ("admin" or "guest") from the dropdown.
+- Click the "Search Weather" button to fetch weather data.
+- Depending on your role, you will either see weather information or a message indicating access is denied.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Technologies Used
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- React
+- Express
+- JavaScript
+- Node.js
+- Express
 
-## Learn More
+## Future Enhancements
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Advanced Policy Management**: Consider integrating OPAL for more robust policy definition and management.
+- **UI/UX Improvements**: Enhance the user interface with better error handling and visual feedback.
+- **Testing**: Implement unit tests to ensure functionality and permission enforcement.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contributing
 
-### Code Splitting
+Contributions are welcome! Please fork the repository and submit a pull request with your improvements.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## License
 
-### Analyzing the Bundle Size
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Acknowledgments
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Inspired by challenges in learning role-based access control and API integration.
