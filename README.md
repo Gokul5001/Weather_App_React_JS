@@ -53,8 +53,8 @@ To run the WeatherApp locally, follow these steps:
 - React
 - Express
 - JavaScript
-- -Node.js
-- -Express
+- Node.js
+- Express
 
 ## Future Enhancements
 
