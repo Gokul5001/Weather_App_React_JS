@@ -2,7 +2,7 @@
 
 This is a simple React-based Weather Application that allows users to search for current weather conditions in any city. The app fetches weather data from the OpenWeatherMap API and displays it in an easy-to-read format.
 
-<img src="https://github.com/user-attachments/assets/364b70d4-ade1-4e6b-847b-7db332de3750" alt="Weather App Screenshot" width="600"/>
+<img src="./screenshot.png" alt="Weather App Screenshot" width="700"/>
 
 ## Features
 
