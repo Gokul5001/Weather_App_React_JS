@@ -11,7 +11,6 @@ import rain_icon from '../Assets/rain.png';
 import snow_icon from '../Assets/snow.png';
 
 const WeatherApp = () => {
-  const [role, setRole] = useState("guest");
   const [city, setCity] = useState("");
   const [icon, setIcon] = useState(cloud_icon);
 
@@ -33,16 +32,11 @@ const WeatherApp = () => {
 
   const fetchWeather = async (city) => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=Metric&appid=${api_key}`;
-    try {
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error(`Weather data fetch failed: ${response.status}`);
-      }
-      return response.json();
-    } catch (error) {
-      console.error('Error fetching weather data:', error);
-      throw error; // Re-throw the error to be caught by the caller
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Weather data fetch failed: ${response.status}`);
     }
+    return response.json();
   };
 
   const { data, error, isLoading, refetch } = useQuery(
@@ -50,9 +44,6 @@ const WeatherApp = () => {
     () => fetchWeather(city),
     {
       enabled: false, // Disable automatic refetching
-      onError: (error) => {
-        console.error('Weather data fetch error:', error);
-      }
     }
   );
 
@@ -62,35 +53,12 @@ const WeatherApp = () => {
     }
   }, [data]); // Only update icon when data changes
 
-  const checkPermission = async (action, resource) => {
-    try {
-      const response = await fetch("http://localhost:8000/evaluate", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ principal: role, action, resource }),
-      });
-
-      if (!response.ok) {
-        throw new Error(`Permission check failed: ${response.status}`);
-      }
-
-      const result = await response.json();
-      return result.allowed;
-    } catch (error) {
-      console.error('Failed to check permission:', error);
-      alert('Failed to fetch permission data. Please check the console for details.');
-      return false;
+  const search = () => {
+    if (city) {
+      refetch();
+    } else {
+      alert("Please enter a city name.");
     }
-  };
-
-  const search = async () => {
-    const allowed = await checkPermission("search-weather", "weather-data");
-    if (!allowed) {
-      alert("You do not have permission to search.");
-      return;
-    }
-
-    refetch();
   };
 
   return (
@@ -108,17 +76,6 @@ const WeatherApp = () => {
           />
           <div className="search-icon" onClick={search} role="button" aria-label="Search">
             <img src={search_icon} alt="Search" />
-          </div>
-          <div className="role-selector">
-            <label htmlFor="role-select">Select Role:</label>
-            <select
-              id="role-select"
-              value={role}
-              onChange={(e) => setRole(e.target.value)}
-            >
-              <option value="admin">Admin</option>
-              <option value="guest">Guest</option>
-            </select>
           </div>
         </div>
 
