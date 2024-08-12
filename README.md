@@ -1,75 +1,74 @@
-# WeatherApp
+# Weather App
 
-WeatherApp is a simple application demonstrating role-based access control (RBAC) and integration with an Express server for permission management.
-
-## Overview
-
-WeatherApp allows users to view weather data based on their assigned roles. The application distinguishes between "admin" and "guest" roles, with different permissions for accessing weather information.
+This is a simple React-based Weather Application that allows users to search for current weather conditions in any city. The app fetches weather data from the OpenWeatherMap API and displays it in an easy-to-read format.
 
 ## Features
 
-- **Role Selection**: Users can choose between "admin" and "guest" roles using a dropdown menu.
-- **Permission Enforcement**: The application enforces permissions when fetching weather data. Admins have full access, while guests have restricted access.
-- **Error Handling**: Basic error handling ensures users are notified when permissions are denied or when weather data retrieval fails.
-- **Integration with Express Server**: The backend server (`opal-server.js`) evaluates permissions based on role and action (`search-weather`).
+- **City Search**: Enter a city name to get the current weather information.
+- **Weather Details**: Displays temperature, humidity, and wind speed.
+- **Dynamic Weather Icons**: Shows different icons based on the current weather conditions.
+- **Error Handling**: Alerts users when an error occurs, such as entering an invalid city name.
 
-## Setup
+## Technologies Used
 
-To run the WeatherApp locally, follow these steps:
+- **React**: A JavaScript library for building user interfaces.
+- **React Query**: For fetching, caching, and updating asynchronous data in React.
+- **OpenWeatherMap API**: Provides current weather data for any location.
+- **CSS**: For styling the components.
 
-1. **Clone the repository**:
+## Installation
+
+1. Clone the repository:
+
    ```bash
-   git clone https://github.com/your-username/WeatherApp.git
-   cd WeatherApp
+   git clone https://github.com/yourusername/weather-app.git
    ```
 
-2. **Install dependencies**:
+2. Navigate to the project directory:
+
+   ```bash
+   cd weather-app
+   ```
+
+3. Install the dependencies:
+
    ```bash
    npm install
    ```
 
-3. **Start the server**:
+4. Create a `.env` file in the root directory and add your OpenWeatherMap API key:
+
    ```bash
-   node opal-server.js
+   REACT_APP_API_KEY=your_openweathermap_api_key
    ```
 
-   This will start the Express server on `http://localhost:3000`.
+5. Start the development server:
 
-4. **Start the frontend**:
    ```bash
    npm start
    ```
 
-   This will start the React development server and open the WeatherApp in your default web browser.
-
 ## Usage
 
-- Select a role ("admin" or "guest") from the dropdown.
-- Click the "Search Weather" button to fetch weather data.
-- Depending on your role, you will either see weather information or a message indicating access is denied.
+1. Enter a city name in the input field.
+2. Click on the search icon or press `Enter` to fetch the weather details.
+3. The app will display the current temperature, humidity, and wind speed for the entered city.
 
-## Technologies Used
+## Deployment
 
-- React
-- Express
-- JavaScript
-- Node.js
-- Express
+You can deploy this app to platforms like Vercel, Netlify, or GitHub Pages.
 
-## Future Enhancements
+1. Build the project:
 
-- **Advanced Policy Management**: Consider integrating OPAL for more robust policy definition and management.
-- **UI/UX Improvements**: Enhance the user interface with better error handling and visual feedback.
-- **Testing**: Implement unit tests to ensure functionality and permission enforcement.
+   ```bash
+   npm run build
+   ```
 
-## Contributing
+2. Deploy the contents of the `build` folder to your hosting platform.
 
-Contributions are welcome! Please fork the repository and submit a pull request with your improvements.
+## Credits
 
-## License
+- [OpenWeatherMap](https://openweathermap.org/) for providing the weather data.
+- Icons used in the app are sourced from various free icon libraries.
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Inspired by challenges in learning role-based access control and API integration.
+Feel free to contribute to the project or open an issue if you find any bugs!
