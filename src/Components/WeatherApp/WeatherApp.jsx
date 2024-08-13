@@ -14,7 +14,7 @@ const WeatherApp = () => {
   const [city, setCity] = useState("");
   const [icon, setIcon] = useState(cloud_icon);
 
-  const api_key = "fb620a4e881940e96504120c440354ba"; // Replace with your actual OpenWeatherMap API key
+  const api_key = "fb620a4e881940e96504120c440354ba";
   const iconMapping = {
     "01d": clear_icon,
     "01n": clear_icon,
@@ -51,7 +51,7 @@ const WeatherApp = () => {
     if (data && data.main) {
       setIcon(iconMapping[data.weather[0].icon] || clear_icon);
     }
-  }, [data]); // Only update icon when data changes
+  }, [data]); // Only update icon when data change
 
   const search = () => {
     if (city) {
